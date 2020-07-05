@@ -1,0 +1,9 @@
+# 爬取日期
+DATE_FORMAT = "%Y-%m-%d" # 格式化
+
+def get_now_timestamp_13():
+    return int(time.time()*1000)
+def get_now_date():
+    return time.strftime(DATE_FORMAT)
+if __name__ == '__main__':
+    today = get_now_date()
