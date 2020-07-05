@@ -1,0 +1,18 @@
+# 折线图
+
+mpl.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False # 用来正常显示负号
+
+plt.figure(figsize=(22, 7))  # 设置图片初始化大小
+
+x = contrast_province
+y = today_add
+
+plt.plot(x, y, c ="r", marker = '.')
+
+plt.title('%s各省份每日增长数据' % today, fontproperties=my_font, fontsize=30)
+plt.xlabel('省份', fontproperties=my_font, fontsize=10) # 小标签：提示信息
+plt.ylabel('日增(人)', fontproperties=my_font, fontsize=10)
+plt.savefig('各省份每日增长数据-折线图.png',dpi=400) # 保存图片：格式、分辨率
+
+plt.show()
