@@ -1,0 +1,13 @@
+url='https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5&callback=jQuery341027523371041305267_1592721097964&_=1592721097965'
+response=requests.get(url).text
+first_index=response.find('(')
+response=response[first_index+1:-1] #删掉得到数据中的无用部分
+data=json.loads(response)['data']
+data=json.loads(data)['areaTree'][0]['children']  # 得到一个列表，里面是我们需要的信息
+province=[]  # 疫情地区
+today_add=[]  # 新增
+nowConfirm=[]  # 现有
+for i in data:
+    province.append(i['name'])  # 疫情地区
+    today_add.append(i['today']['confirm'])  # 新增
+    nowConfirm.append(i['total']['nowConfirm'])  # 现有
